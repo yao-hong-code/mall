@@ -1,0 +1,12 @@
+server:
+  port: 10000
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto   # 主键自增
+      logic-delete-value: 0
+      logic-not-delete-value: 1
+logging:
+  level:
+    com.edu.mall.product: debug

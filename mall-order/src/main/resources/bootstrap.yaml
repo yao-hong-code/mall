@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: orderservice
+  cloud:
+    nacos:
+      server-addr: 101.34.245.48
+      config:
+        namespace: 75d2c1e9-62a8-4e18-9562-f5e6ef6a42cc
+        file-extension: yaml
+      discovery:
+        namespace: 75d2c1e9-62a8-4e18-9562-f5e6ef6a42cc

@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: thirdpartyservice
+  cloud:
+    nacos:
+      server-addr: 101.34.245.48
+      discovery:
+        namespace: 75d2c1e9-62a8-4e18-9562-f5e6ef6a42cc
+      config:
+        namespace: 75d2c1e9-62a8-4e18-9562-f5e6ef6a42cc
+        extension-configs:
+          - data-id: oss.yaml
+            group: DEFAULT_GROUP
+            refresh: true
+
