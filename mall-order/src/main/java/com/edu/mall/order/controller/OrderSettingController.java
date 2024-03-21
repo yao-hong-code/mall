@@ -1,20 +1,14 @@
 package com.edu.mall.order.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.edu.mall.order.entity.OrderSettingEntity;
-import com.edu.mall.order.service.OrderSettingService;
 import com.edu.common.utils.PageUtils;
 import com.edu.common.utils.R;
+import com.edu.mall.order.entity.OrderSettingEntity;
+import com.edu.mall.order.service.OrderSettingService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
+import java.util.Map;
 
 
 /**
@@ -32,7 +26,7 @@ public class OrderSettingController {
      * 列表
      */
     @RequestMapping("/list")
-    public R list(@RequestParam Map<String, Object> params){
+    public R list(@RequestParam Map<String, Object> params) {
         PageUtils page = orderSettingService.queryPage(params);
 
         return R.ok().put("page", page);
@@ -43,8 +37,8 @@ public class OrderSettingController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    public R info(@PathVariable("id") Long id){
-		OrderSettingEntity orderSetting = orderSettingService.getById(id);
+    public R info(@PathVariable("id") Long id) {
+        OrderSettingEntity orderSetting = orderSettingService.getById(id);
 
         return R.ok().put("orderSetting", orderSetting);
     }
@@ -53,8 +47,8 @@ public class OrderSettingController {
      * 保存
      */
     @RequestMapping("/save")
-    public R save(@RequestBody OrderSettingEntity orderSetting){
-		orderSettingService.save(orderSetting);
+    public R save(@RequestBody OrderSettingEntity orderSetting) {
+        orderSettingService.save(orderSetting);
 
         return R.ok();
     }
@@ -63,8 +57,8 @@ public class OrderSettingController {
      * 修改
      */
     @RequestMapping("/update")
-    public R update(@RequestBody OrderSettingEntity orderSetting){
-		orderSettingService.updateById(orderSetting);
+    public R update(@RequestBody OrderSettingEntity orderSetting) {
+        orderSettingService.updateById(orderSetting);
 
         return R.ok();
     }
@@ -73,8 +67,8 @@ public class OrderSettingController {
      * 删除
      */
     @RequestMapping("/delete")
-    public R delete(@RequestBody Long[] ids){
-		orderSettingService.removeByIds(Arrays.asList(ids));
+    public R delete(@RequestBody Long[] ids) {
+        orderSettingService.removeByIds(Arrays.asList(ids));
 
         return R.ok();
     }

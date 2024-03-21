@@ -7,8 +7,6 @@ import com.edu.mall.ware.entity.UndoLogEntity;
 import java.util.Map;
 
 /**
- * 
- *
  * @author yao-hong
  */
 public interface UndoLogService extends IService<UndoLogEntity> {

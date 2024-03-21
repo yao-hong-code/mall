@@ -27,6 +27,6 @@ public class MallThirdPartyApplicationTest {
     @Test
     public void upload() throws FileNotFoundException {
         FileInputStream fileInputStream = new FileInputStream(new File("/Users/yaoh/demo.txt"));
-        PutObjectResult putObjectResult = ossClient.putObject("yao-hong","demo.txt",fileInputStream);
+        PutObjectResult putObjectResult = ossClient.putObject("yao-hong", "demo.txt", fileInputStream);
     }
 }

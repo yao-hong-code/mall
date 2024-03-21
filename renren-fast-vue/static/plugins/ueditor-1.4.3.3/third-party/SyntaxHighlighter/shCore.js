@@ -1922,7 +1922,8 @@ if (typeof (SyntaxHighlighter) == 'undefined') var SyntaxHighlighter = function 
 
           if (itemJ === null)
 
-          else if (itemJ.index > itemIEndPos)
+          else
+          if (itemJ.index > itemIEndPos)
             break;
           else if (itemJ.index == itemI.index && itemJ.length > itemI.length)
             matches[i] = null;

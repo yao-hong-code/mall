@@ -7,8 +7,6 @@ import com.edu.mall.ware.entity.PurchaseDetailEntity;
 import java.util.Map;
 
 /**
- * 
- *
  * @author yao-hong
  */
 public interface PurchaseDetailService extends IService<PurchaseDetailEntity> {
