@@ -33,10 +33,17 @@ public class OssController {
     String bucket;
 
     @Value("${spring.cloud.alicloud.access-key}")
+
     String accessId;
     @Value("${spring.cloud.alicloud.secret-key}")
     String accessKey;
 
+    /**
+     * 获取签名
+     *
+     * @return: java.util.Map<java.lang.String, java.lang.String>
+     * @author yao-hong
+     */
     @RequestMapping("/oss/policy")
     public Map<String, String> policy() {
 
