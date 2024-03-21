@@ -1,22 +1,26 @@
 package com.edu.mall.coupon.controller;
 
-import com.edu.common.utils.PageUtils;
-import com.edu.common.utils.R;
-import com.edu.mall.coupon.entity.SeckillSkuNoticeEntity;
-import com.edu.mall.coupon.service.SeckillSkuNoticeService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.Arrays;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.edu.mall.coupon.entity.SeckillSkuNoticeEntity;
+import com.edu.mall.coupon.service.SeckillSkuNoticeService;
+import com.edu.common.utils.PageUtils;
+import com.edu.common.utils.R;
+
+
 
 /**
- * ??ɱ??Ʒ֪ͨ???
+ * 秒杀商品通知订阅
  *
  * @author yao-hong
- * @email 18213823950@163.com
- * @date 2024-03-04 22:26:07
  */
 @RestController
 @RequestMapping("coupon/seckillskunotice")
@@ -28,7 +32,7 @@ public class SeckillSkuNoticeController {
      * 列表
      */
     @RequestMapping("/list")
-    public R list(@RequestParam Map<String, Object> params) {
+    public R list(@RequestParam Map<String, Object> params){
         PageUtils page = seckillSkuNoticeService.queryPage(params);
 
         return R.ok().put("page", page);
@@ -39,8 +43,8 @@ public class SeckillSkuNoticeController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    public R info(@PathVariable("id") Long id) {
-        SeckillSkuNoticeEntity seckillSkuNotice = seckillSkuNoticeService.getById(id);
+    public R info(@PathVariable("id") Long id){
+		SeckillSkuNoticeEntity seckillSkuNotice = seckillSkuNoticeService.getById(id);
 
         return R.ok().put("seckillSkuNotice", seckillSkuNotice);
     }
@@ -49,8 +53,8 @@ public class SeckillSkuNoticeController {
      * 保存
      */
     @RequestMapping("/save")
-    public R save(@RequestBody SeckillSkuNoticeEntity seckillSkuNotice) {
-        seckillSkuNoticeService.save(seckillSkuNotice);
+    public R save(@RequestBody SeckillSkuNoticeEntity seckillSkuNotice){
+		seckillSkuNoticeService.save(seckillSkuNotice);
 
         return R.ok();
     }
@@ -59,8 +63,8 @@ public class SeckillSkuNoticeController {
      * 修改
      */
     @RequestMapping("/update")
-    public R update(@RequestBody SeckillSkuNoticeEntity seckillSkuNotice) {
-        seckillSkuNoticeService.updateById(seckillSkuNotice);
+    public R update(@RequestBody SeckillSkuNoticeEntity seckillSkuNotice){
+		seckillSkuNoticeService.updateById(seckillSkuNotice);
 
         return R.ok();
     }
@@ -69,8 +73,8 @@ public class SeckillSkuNoticeController {
      * 删除
      */
     @RequestMapping("/delete")
-    public R delete(@RequestBody Long[] ids) {
-        seckillSkuNoticeService.removeByIds(Arrays.asList(ids));
+    public R delete(@RequestBody Long[] ids){
+		seckillSkuNoticeService.removeByIds(Arrays.asList(ids));
 
         return R.ok();
     }

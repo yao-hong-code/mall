@@ -21,8 +21,6 @@ import ${mainPath}.common.utils.R;
  * ${comments}
  *
  * @author ${author}
- * @email ${email}
- * @date ${datetime}
  */
 @RestController
 @RequestMapping("${moduleName}/${pathName}")

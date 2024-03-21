@@ -7,11 +7,9 @@ import com.edu.mall.order.entity.OrderReturnApplyEntity;
 import java.util.Map;
 
 /**
- * ?????˻????
+ * 订单退货申请
  *
  * @author yao-hong
- * @email 18213823950@163.com
- * @date 2024-03-04 23:04:29
  */
 public interface OrderReturnApplyService extends IService<OrderReturnApplyEntity> {
 

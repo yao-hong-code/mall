@@ -15,8 +15,6 @@ import org.springframework.data.annotation.Id;
  * ${comments}
  * 
  * @author ${author}
- * @email ${email}
- * @date ${datetime}
  */
 @Data
 public class ${className}InnerEntity  {

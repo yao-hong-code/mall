@@ -7,11 +7,9 @@ import com.edu.mall.product.entity.SpuCommentEntity;
 import java.util.Map;
 
 /**
- * ??Ʒ???
+ * 商品评价
  *
  * @author yao-hong
- * @email 18213823950@163.com
- * @date 2024-03-04 15:47:33
  */
 public interface SpuCommentService extends IService<SpuCommentEntity> {
 

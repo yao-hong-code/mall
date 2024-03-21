@@ -7,11 +7,9 @@ import com.edu.mall.coupon.entity.MemberPriceEntity;
 import java.util.Map;
 
 /**
- * ??Ʒ??Ա?۸
+ * 商品会员价格
  *
  * @author yao-hong
- * @email 18213823950@163.com
- * @date 2024-03-04 22:26:15
  */
 public interface MemberPriceService extends IService<MemberPriceEntity> {
 

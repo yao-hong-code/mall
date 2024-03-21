@@ -1,22 +1,26 @@
 package com.edu.mall.member.controller;
 
-import com.edu.common.utils.PageUtils;
-import com.edu.common.utils.R;
-import com.edu.mall.member.entity.MemberCollectSpuEntity;
-import com.edu.mall.member.service.MemberCollectSpuService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.Arrays;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.edu.mall.member.entity.MemberCollectSpuEntity;
+import com.edu.mall.member.service.MemberCollectSpuService;
+import com.edu.common.utils.PageUtils;
+import com.edu.common.utils.R;
+
+
 
 /**
- * ??Ա?ղص???Ʒ
+ * 会员收藏的商品
  *
  * @author yao-hong
- * @email 18213823950@163.com
- * @date 2024-03-04 22:56:21
  */
 @RestController
 @RequestMapping("member/membercollectspu")
@@ -28,7 +32,7 @@ public class MemberCollectSpuController {
      * 列表
      */
     @RequestMapping("/list")
-    public R list(@RequestParam Map<String, Object> params) {
+    public R list(@RequestParam Map<String, Object> params){
         PageUtils page = memberCollectSpuService.queryPage(params);
 
         return R.ok().put("page", page);
@@ -39,8 +43,8 @@ public class MemberCollectSpuController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    public R info(@PathVariable("id") Long id) {
-        MemberCollectSpuEntity memberCollectSpu = memberCollectSpuService.getById(id);
+    public R info(@PathVariable("id") Long id){
+		MemberCollectSpuEntity memberCollectSpu = memberCollectSpuService.getById(id);
 
         return R.ok().put("memberCollectSpu", memberCollectSpu);
     }
@@ -49,8 +53,8 @@ public class MemberCollectSpuController {
      * 保存
      */
     @RequestMapping("/save")
-    public R save(@RequestBody MemberCollectSpuEntity memberCollectSpu) {
-        memberCollectSpuService.save(memberCollectSpu);
+    public R save(@RequestBody MemberCollectSpuEntity memberCollectSpu){
+		memberCollectSpuService.save(memberCollectSpu);
 
         return R.ok();
     }
@@ -59,8 +63,8 @@ public class MemberCollectSpuController {
      * 修改
      */
     @RequestMapping("/update")
-    public R update(@RequestBody MemberCollectSpuEntity memberCollectSpu) {
-        memberCollectSpuService.updateById(memberCollectSpu);
+    public R update(@RequestBody MemberCollectSpuEntity memberCollectSpu){
+		memberCollectSpuService.updateById(memberCollectSpu);
 
         return R.ok();
     }
@@ -69,8 +73,8 @@ public class MemberCollectSpuController {
      * 删除
      */
     @RequestMapping("/delete")
-    public R delete(@RequestBody Long[] ids) {
-        memberCollectSpuService.removeByIds(Arrays.asList(ids));
+    public R delete(@RequestBody Long[] ids){
+		memberCollectSpuService.removeByIds(Arrays.asList(ids));
 
         return R.ok();
     }

@@ -18,8 +18,6 @@ import org.springframework.data.annotation.Id;
  * ${comments}
  * 
  * @author ${author}
- * @email ${email}
- * @date ${datetime}
  */
 @Data
 @Document(collection = "${tableName}")

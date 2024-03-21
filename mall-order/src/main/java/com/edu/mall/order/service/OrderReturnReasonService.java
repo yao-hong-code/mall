@@ -7,11 +7,9 @@ import com.edu.mall.order.entity.OrderReturnReasonEntity;
 import java.util.Map;
 
 /**
- * ?˻?ԭ?
+ * 退货原因
  *
  * @author yao-hong
- * @email 18213823950@163.com
- * @date 2024-03-04 23:04:29
  */
 public interface OrderReturnReasonService extends IService<OrderReturnReasonEntity> {
 

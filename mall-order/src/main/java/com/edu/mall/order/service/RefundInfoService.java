@@ -7,11 +7,9 @@ import com.edu.mall.order.entity.RefundInfoEntity;
 import java.util.Map;
 
 /**
- * ?˿???Ϣ
+ * 退款信息
  *
  * @author yao-hong
- * @email 18213823950@163.com
- * @date 2024-03-04 23:04:30
  */
 public interface RefundInfoService extends IService<RefundInfoEntity> {
 

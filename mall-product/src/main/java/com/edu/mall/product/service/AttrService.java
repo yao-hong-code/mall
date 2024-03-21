@@ -7,11 +7,9 @@ import com.edu.mall.product.entity.AttrEntity;
 import java.util.Map;
 
 /**
- * ??Ʒ?
+ * 商品属性
  *
  * @author yao-hong
- * @email 18213823950@163.com
- * @date 2024-03-04 15:47:39
  */
 public interface AttrService extends IService<AttrEntity> {
 

@@ -1,17 +1,15 @@
 package com.edu.mall.member.dao;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.edu.mall.member.entity.MemberStatisticsInfoEntity;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
- * ??Աͳ????Ϣ
- *
+ * 会员统计信息
+ * 
  * @author yao-hong
- * @email 18213823950@163.com
- * @date 2024-03-04 22:56:22
  */
 @Mapper
 public interface MemberStatisticsInfoDao extends BaseMapper<MemberStatisticsInfoEntity> {
-
+	
 }

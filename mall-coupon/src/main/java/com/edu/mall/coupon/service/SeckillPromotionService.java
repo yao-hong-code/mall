@@ -7,11 +7,9 @@ import com.edu.mall.coupon.entity.SeckillPromotionEntity;
 import java.util.Map;
 
 /**
- * ??ɱ?
+ * 秒杀活动
  *
  * @author yao-hong
- * @email 18213823950@163.com
- * @date 2024-03-04 22:26:07
  */
 public interface SeckillPromotionService extends IService<SeckillPromotionEntity> {
 

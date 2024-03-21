@@ -7,11 +7,9 @@ import com.edu.mall.member.entity.MemberStatisticsInfoEntity;
 import java.util.Map;
 
 /**
- * ??Աͳ????Ϣ
+ * 会员统计信息
  *
  * @author yao-hong
- * @email 18213823950@163.com
- * @date 2024-03-04 22:56:22
  */
 public interface MemberStatisticsInfoService extends IService<MemberStatisticsInfoEntity> {
 

@@ -7,11 +7,9 @@ import com.edu.mall.coupon.entity.HomeSubjectEntity;
 import java.util.Map;
 
 /**
- * ??ҳר??????jd??ҳ?????ܶ?ר?⣬ÿ??ר???????µ?ҳ?棬չʾר????Ʒ??Ϣ??
+ * 首页专题表【jd首页下面很多专题，每个专题链接新的页面，展示专题商品信息】
  *
  * @author yao-hong
- * @email 18213823950@163.com
- * @date 2024-03-04 22:26:14
  */
 public interface HomeSubjectService extends IService<HomeSubjectEntity> {
 

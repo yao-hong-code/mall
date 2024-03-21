@@ -2,63 +2,62 @@ package com.edu.mall.member.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+
+import java.math.BigDecimal;
+import java.io.Serializable;
+import java.util.Date;
 import lombok.Data;
 
-import java.io.Serializable;
-import java.math.BigDecimal;
-
 /**
- * ??Ա?ȼ?
- *
+ * 会员等级
+ * 
  * @author yao-hong
- * @email 18213823950@163.com
- * @date 2024-03-04 22:56:21
  */
 @Data
 @TableName("ums_member_level")
 public class MemberLevelEntity implements Serializable {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    /**
-     * id
-     */
-    @TableId
-    private Long id;
-    /**
-     * ?ȼ??
-     */
-    private String name;
-    /**
-     * ?ȼ???Ҫ?ĳɳ?ֵ
-     */
-    private Integer growthPoint;
-    /**
-     * ?Ƿ?ΪĬ?ϵȼ?[0->???ǣ?1->??]
-     */
-    private Integer defaultStatus;
-    /**
-     * ???˷ѱ?׼
-     */
-    private BigDecimal freeFreightPoint;
-    /**
-     * ÿ?????ۻ?ȡ?ĳɳ?ֵ
-     */
-    private Integer commentGrowthPoint;
-    /**
-     * ?Ƿ?????????Ȩ
-     */
-    private Integer priviledgeFreeFreight;
-    /**
-     * ?Ƿ??л?Ա?۸???Ȩ
-     */
-    private Integer priviledgeMemberPrice;
-    /**
-     * ?Ƿ?????????Ȩ
-     */
-    private Integer priviledgeBirthday;
-    /**
-     * ??ע
-     */
-    private String note;
+	/**
+	 * id
+	 */
+	@TableId
+	private Long id;
+	/**
+	 * 等级名称
+	 */
+	private String name;
+	/**
+	 * 等级需要的成长值
+	 */
+	private Integer growthPoint;
+	/**
+	 * 是否为默认等级[0->不是；1->是]
+	 */
+	private Integer defaultStatus;
+	/**
+	 * 免运费标准
+	 */
+	private BigDecimal freeFreightPoint;
+	/**
+	 * 每次评价获取的成长值
+	 */
+	private Integer commentGrowthPoint;
+	/**
+	 * 是否有免邮特权
+	 */
+	private Integer priviledgeFreeFreight;
+	/**
+	 * 是否有会员价格特权
+	 */
+	private Integer priviledgeMemberPrice;
+	/**
+	 * 是否有生日特权
+	 */
+	private Integer priviledgeBirthday;
+	/**
+	 * 备注
+	 */
+	private String note;
 
 }

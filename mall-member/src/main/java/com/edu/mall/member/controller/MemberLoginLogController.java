@@ -1,22 +1,26 @@
 package com.edu.mall.member.controller;
 
-import com.edu.common.utils.PageUtils;
-import com.edu.common.utils.R;
-import com.edu.mall.member.entity.MemberLoginLogEntity;
-import com.edu.mall.member.service.MemberLoginLogService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.Arrays;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.edu.mall.member.entity.MemberLoginLogEntity;
+import com.edu.mall.member.service.MemberLoginLogService;
+import com.edu.common.utils.PageUtils;
+import com.edu.common.utils.R;
+
+
 
 /**
- * ??Ա??¼??¼
+ * 会员登录记录
  *
  * @author yao-hong
- * @email 18213823950@163.com
- * @date 2024-03-04 22:56:21
  */
 @RestController
 @RequestMapping("member/memberloginlog")
@@ -28,7 +32,7 @@ public class MemberLoginLogController {
      * 列表
      */
     @RequestMapping("/list")
-    public R list(@RequestParam Map<String, Object> params) {
+    public R list(@RequestParam Map<String, Object> params){
         PageUtils page = memberLoginLogService.queryPage(params);
 
         return R.ok().put("page", page);
@@ -39,8 +43,8 @@ public class MemberLoginLogController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    public R info(@PathVariable("id") Long id) {
-        MemberLoginLogEntity memberLoginLog = memberLoginLogService.getById(id);
+    public R info(@PathVariable("id") Long id){
+		MemberLoginLogEntity memberLoginLog = memberLoginLogService.getById(id);
 
         return R.ok().put("memberLoginLog", memberLoginLog);
     }
@@ -49,8 +53,8 @@ public class MemberLoginLogController {
      * 保存
      */
     @RequestMapping("/save")
-    public R save(@RequestBody MemberLoginLogEntity memberLoginLog) {
-        memberLoginLogService.save(memberLoginLog);
+    public R save(@RequestBody MemberLoginLogEntity memberLoginLog){
+		memberLoginLogService.save(memberLoginLog);
 
         return R.ok();
     }
@@ -59,8 +63,8 @@ public class MemberLoginLogController {
      * 修改
      */
     @RequestMapping("/update")
-    public R update(@RequestBody MemberLoginLogEntity memberLoginLog) {
-        memberLoginLogService.updateById(memberLoginLog);
+    public R update(@RequestBody MemberLoginLogEntity memberLoginLog){
+		memberLoginLogService.updateById(memberLoginLog);
 
         return R.ok();
     }
@@ -69,8 +73,8 @@ public class MemberLoginLogController {
      * 删除
      */
     @RequestMapping("/delete")
-    public R delete(@RequestBody Long[] ids) {
-        memberLoginLogService.removeByIds(Arrays.asList(ids));
+    public R delete(@RequestBody Long[] ids){
+		memberLoginLogService.removeByIds(Arrays.asList(ids));
 
         return R.ok();
     }

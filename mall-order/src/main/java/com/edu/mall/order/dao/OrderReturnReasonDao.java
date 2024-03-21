@@ -1,17 +1,15 @@
 package com.edu.mall.order.dao;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.edu.mall.order.entity.OrderReturnReasonEntity;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
- * ?˻?ԭ?
- *
+ * 退货原因
+ * 
  * @author yao-hong
- * @email 18213823950@163.com
- * @date 2024-03-04 23:04:29
  */
 @Mapper
 public interface OrderReturnReasonDao extends BaseMapper<OrderReturnReasonEntity> {
-
+	
 }

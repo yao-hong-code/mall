@@ -1,22 +1,26 @@
 package com.edu.mall.ware.controller;
 
-import com.edu.common.utils.PageUtils;
-import com.edu.common.utils.R;
-import com.edu.mall.ware.entity.PurchaseEntity;
-import com.edu.mall.ware.service.PurchaseService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.Arrays;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.edu.mall.ware.entity.PurchaseEntity;
+import com.edu.mall.ware.service.PurchaseService;
+import com.edu.common.utils.PageUtils;
+import com.edu.common.utils.R;
+
+
 
 /**
- * ?ɹ???Ϣ
+ * 采购信息
  *
  * @author yao-hong
- * @email 18213823950@163.com
- * @date 2024-03-04 23:13:00
  */
 @RestController
 @RequestMapping("ware/purchase")
@@ -28,7 +32,7 @@ public class PurchaseController {
      * 列表
      */
     @RequestMapping("/list")
-    public R list(@RequestParam Map<String, Object> params) {
+    public R list(@RequestParam Map<String, Object> params){
         PageUtils page = purchaseService.queryPage(params);
 
         return R.ok().put("page", page);
@@ -39,8 +43,8 @@ public class PurchaseController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    public R info(@PathVariable("id") Long id) {
-        PurchaseEntity purchase = purchaseService.getById(id);
+    public R info(@PathVariable("id") Long id){
+		PurchaseEntity purchase = purchaseService.getById(id);
 
         return R.ok().put("purchase", purchase);
     }
@@ -49,8 +53,8 @@ public class PurchaseController {
      * 保存
      */
     @RequestMapping("/save")
-    public R save(@RequestBody PurchaseEntity purchase) {
-        purchaseService.save(purchase);
+    public R save(@RequestBody PurchaseEntity purchase){
+		purchaseService.save(purchase);
 
         return R.ok();
     }
@@ -59,8 +63,8 @@ public class PurchaseController {
      * 修改
      */
     @RequestMapping("/update")
-    public R update(@RequestBody PurchaseEntity purchase) {
-        purchaseService.updateById(purchase);
+    public R update(@RequestBody PurchaseEntity purchase){
+		purchaseService.updateById(purchase);
 
         return R.ok();
     }
@@ -69,8 +73,8 @@ public class PurchaseController {
      * 删除
      */
     @RequestMapping("/delete")
-    public R delete(@RequestBody Long[] ids) {
-        purchaseService.removeByIds(Arrays.asList(ids));
+    public R delete(@RequestBody Long[] ids){
+		purchaseService.removeByIds(Arrays.asList(ids));
 
         return R.ok();
     }

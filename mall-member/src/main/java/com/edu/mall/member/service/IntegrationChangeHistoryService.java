@@ -7,11 +7,9 @@ import com.edu.mall.member.entity.IntegrationChangeHistoryEntity;
 import java.util.Map;
 
 /**
- * ???ֱ仯??ʷ??¼
+ * 积分变化历史记录
  *
  * @author yao-hong
- * @email 18213823950@163.com
- * @date 2024-03-04 22:56:20
  */
 public interface IntegrationChangeHistoryService extends IService<IntegrationChangeHistoryEntity> {
 

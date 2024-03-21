@@ -7,11 +7,9 @@ import com.edu.mall.product.entity.SpuInfoDescEntity;
 import java.util.Map;
 
 /**
- * spu??Ϣ???
+ * spu信息介绍
  *
  * @author yao-hong
- * @email 18213823950@163.com
- * @date 2024-03-04 15:47:38
  */
 public interface SpuInfoDescService extends IService<SpuInfoDescEntity> {
 

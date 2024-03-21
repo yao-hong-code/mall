@@ -7,11 +7,9 @@ import com.edu.mall.coupon.entity.HomeAdvEntity;
 import java.util.Map;
 
 /**
- * ??ҳ?ֲ????
+ * 首页轮播广告
  *
  * @author yao-hong
- * @email 18213823950@163.com
- * @date 2024-03-04 22:26:14
  */
 public interface HomeAdvService extends IService<HomeAdvEntity> {
 

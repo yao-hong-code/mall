@@ -7,11 +7,9 @@ import com.edu.mall.product.entity.CategoryBrandRelationEntity;
 import java.util.Map;
 
 /**
- * Ʒ?Ʒ???????
+ * 品牌分类关联
  *
  * @author yao-hong
- * @email 18213823950@163.com
- * @date 2024-03-04 15:47:39
  */
 public interface CategoryBrandRelationService extends IService<CategoryBrandRelationEntity> {
 

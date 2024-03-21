@@ -2,66 +2,65 @@ package com.edu.mall.member.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Data;
 
 import java.io.Serializable;
+import java.util.Date;
+import lombok.Data;
 
 /**
- * ??Ա?ջ???ַ
- *
+ * 会员收货地址
+ * 
  * @author yao-hong
- * @email 18213823950@163.com
- * @date 2024-03-04 22:56:21
  */
 @Data
 @TableName("ums_member_receive_address")
 public class MemberReceiveAddressEntity implements Serializable {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    /**
-     * id
-     */
-    @TableId
-    private Long id;
-    /**
-     * member_id
-     */
-    private Long memberId;
-    /**
-     * ?ջ??????
-     */
-    private String name;
-    /**
-     * ?绰
-     */
-    private String phone;
-    /**
-     * ???????
-     */
-    private String postCode;
-    /**
-     * ʡ??/ֱϽ?
-     */
-    private String province;
-    /**
-     * ???
-     */
-    private String city;
-    /**
-     * ?
-     */
-    private String region;
-    /**
-     * ??ϸ??ַ(?ֵ?)
-     */
-    private String detailAddress;
-    /**
-     * ʡ?????
-     */
-    private String areacode;
-    /**
-     * ?Ƿ?Ĭ?
-     */
-    private Integer defaultStatus;
+	/**
+	 * id
+	 */
+	@TableId
+	private Long id;
+	/**
+	 * member_id
+	 */
+	private Long memberId;
+	/**
+	 * 收货人姓名
+	 */
+	private String name;
+	/**
+	 * 电话
+	 */
+	private String phone;
+	/**
+	 * 邮政编码
+	 */
+	private String postCode;
+	/**
+	 * 省份/直辖市
+	 */
+	private String province;
+	/**
+	 * 城市
+	 */
+	private String city;
+	/**
+	 * 区
+	 */
+	private String region;
+	/**
+	 * 详细地址(街道)
+	 */
+	private String detailAddress;
+	/**
+	 * 省市区代码
+	 */
+	private String areacode;
+	/**
+	 * 是否默认
+	 */
+	private Integer defaultStatus;
 
 }

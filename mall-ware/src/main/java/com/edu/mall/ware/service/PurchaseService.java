@@ -7,11 +7,9 @@ import com.edu.mall.ware.entity.PurchaseEntity;
 import java.util.Map;
 
 /**
- * ?ɹ???Ϣ
+ * 采购信息
  *
  * @author yao-hong
- * @email 18213823950@163.com
- * @date 2024-03-04 23:13:00
  */
 public interface PurchaseService extends IService<PurchaseEntity> {
 

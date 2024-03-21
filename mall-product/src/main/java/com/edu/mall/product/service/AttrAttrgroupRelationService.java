@@ -7,11 +7,9 @@ import com.edu.mall.product.entity.AttrAttrgroupRelationEntity;
 import java.util.Map;
 
 /**
- * ????&???Է???????
+ * 属性&属性分组关联
  *
  * @author yao-hong
- * @email 18213823950@163.com
- * @date 2024-03-04 15:47:39
  */
 public interface AttrAttrgroupRelationService extends IService<AttrAttrgroupRelationEntity> {
 

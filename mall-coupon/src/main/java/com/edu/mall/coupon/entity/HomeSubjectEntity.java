@@ -2,54 +2,53 @@ package com.edu.mall.coupon.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Data;
 
 import java.io.Serializable;
+import java.util.Date;
+import lombok.Data;
 
 /**
- * ??ҳר??????jd??ҳ?????ܶ?ר?⣬ÿ??ר???????µ?ҳ?棬չʾר????Ʒ??Ϣ??
- *
+ * 首页专题表【jd首页下面很多专题，每个专题链接新的页面，展示专题商品信息】
+ * 
  * @author yao-hong
- * @email 18213823950@163.com
- * @date 2024-03-04 22:26:14
  */
 @Data
 @TableName("sms_home_subject")
 public class HomeSubjectEntity implements Serializable {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    /**
-     * id
-     */
-    @TableId
-    private Long id;
-    /**
-     * ר???
-     */
-    private String name;
-    /**
-     * ר?????
-     */
-    private String title;
-    /**
-     * ר?⸱???
-     */
-    private String subTitle;
-    /**
-     * ??ʾ״̬
-     */
-    private Integer status;
-    /**
-     * ???????
-     */
-    private String url;
-    /**
-     * ???
-     */
-    private Integer sort;
-    /**
-     * ר??ͼƬ??ַ
-     */
-    private String img;
+	/**
+	 * id
+	 */
+	@TableId
+	private Long id;
+	/**
+	 * 专题名字
+	 */
+	private String name;
+	/**
+	 * 专题标题
+	 */
+	private String title;
+	/**
+	 * 专题副标题
+	 */
+	private String subTitle;
+	/**
+	 * 显示状态
+	 */
+	private Integer status;
+	/**
+	 * 详情连接
+	 */
+	private String url;
+	/**
+	 * 排序
+	 */
+	private Integer sort;
+	/**
+	 * 专题图片地址
+	 */
+	private String img;
 
 }
