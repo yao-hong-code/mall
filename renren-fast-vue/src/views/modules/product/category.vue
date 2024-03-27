@@ -17,7 +17,7 @@
              show-checkbox
              :draggable="draggable"
              :allow-drop="allowDrop"
-             :node-drop="handleDrop"
+             @node-drop="handleDrop"
              ref="menuTree"
              node-key="catId">
       <span class="custom-tree-node" slot-scope="{ node, data }">
@@ -109,11 +109,10 @@ export default {
     };
   },
   methods: {
-    //判断节点能否被拖拽函数，返回值：true（拖拽后可放置），false（拖拽后不可放置）
+    //判断节点能否被拖拽
     allowDrop(draggingNode, dropNode, type) {
-      //
-      this.maxLevel = draggingNode.level;
       //节点的最大深度
+      this.maxLevel = draggingNode.level;
       this.countNodeLevel(draggingNode);
       //当前节点的深度
       let deep = Math.abs(this.maxLevel - draggingNode.level) + 1;
@@ -294,7 +293,6 @@ export default {
     },
     //提交数据
     batchSave() {
-      console.log(this.updateNodes);
       this.$http({
         url: this.$http.adornUrl("/product/category/update/sort"),
         method: "post",

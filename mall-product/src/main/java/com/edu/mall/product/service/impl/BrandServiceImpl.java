@@ -8,6 +8,7 @@ import com.edu.common.utils.Query;
 import com.edu.mall.product.dao.BrandDao;
 import com.edu.mall.product.entity.BrandEntity;
 import com.edu.mall.product.service.BrandService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
@@ -20,7 +21,7 @@ public class BrandServiceImpl extends ServiceImpl<BrandDao, BrandEntity> impleme
     public PageUtils queryPage(Map<String, Object> params) {
         IPage<BrandEntity> page = this.page(
                 new Query<BrandEntity>().getPage(params),
-                new QueryWrapper<BrandEntity>()
+                new QueryWrapper<BrandEntity>().lambda().like(StringUtils.isNotEmpty((String) params.get("key")), BrandEntity::getName, params.get("key"))
         );
 
         return new PageUtils(page);
