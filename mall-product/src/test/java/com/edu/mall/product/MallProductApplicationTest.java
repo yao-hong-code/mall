@@ -2,6 +2,7 @@ package com.edu.mall.product;
 
 import com.edu.mall.product.entity.BrandEntity;
 import com.edu.mall.product.service.BrandService;
+import com.edu.mall.product.service.CategoryService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,9 @@ public class MallProductApplicationTest {
 
     @Autowired
     private BrandService brandService;
+
+    @Autowired
+    private CategoryService categoryService;
 
     @Test
     public void addBrand() {

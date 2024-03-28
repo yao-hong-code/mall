@@ -1,16 +1,32 @@
 <template>
   <div>
     <!--添加拖拽开关和批量保存按钮-->
-    <el-switch
-      v-model="draggable"
-      active-text="开启拖拽"
-      inactive-text="关闭拖拽"
-    >
-    </el-switch>
-    <el-button v-if="draggable" size="small" round @click="batchSave">
-      批量保存
-    </el-button>
-    <el-button type="danger" size="small" @click="batchDelete" round>批量删除</el-button>
+    <el-row :gutter="10">
+      <el-col :span="6">
+        <el-switch
+          v-model="draggable"
+          active-text="开启拖拽"
+          inactive-text="关闭拖拽"
+          size="small"
+        >
+        </el-switch>
+      </el-col>
+      <el-col :span="2">
+        <el-button :disabled="!draggable" type="primary" size="small" @click="batchSave">批量保存</el-button>
+      </el-col>
+      <el-col :span="2">
+        <el-button type="danger" size="small" @click="batchDelete">批量删除</el-button>
+      </el-col>
+    </el-row>
+    <el-row :gutter="10">
+      <el-col :span="4">
+        <el-input
+          size="mini"
+          placeholder="输入关键字进行过滤"
+          v-model="filterText">
+        </el-input>
+      </el-col>
+    </el-row>
     <el-tree :data="data"
              :props="defaultProps"
              :expand-on-click-node="false"
@@ -19,7 +35,9 @@
              :allow-drop="allowDrop"
              @node-drop="handleDrop"
              ref="menuTree"
-             node-key="catId">
+             node-key="catId"
+             :filter-node-method="filterNode"
+    >
       <span class="custom-tree-node" slot-scope="{ node, data }">
       <span>{{ node.label }}</span>
       <span>
@@ -81,6 +99,7 @@ export default {
         children: 'children',
         label: 'name'
       },
+      filterText: "",
       // 添加和修改使用
       category: {
         name: "",
@@ -107,6 +126,11 @@ export default {
       //树节点拖拽功能开关
       draggable: false
     };
+  },
+  watch: {
+    filterText(val) {
+      this.$refs.menuTree.filter(val);
+    }
   },
   methods: {
     //判断节点能否被拖拽
@@ -183,6 +207,11 @@ export default {
           this.updateChildNodeLevel(node.childNodes[i]);
         }
       }
+    },
+    // 过滤节点
+    filterNode(value, data) {
+      if (!value) return true;
+      return data.name.indexOf(value) !== -1;
     },
     //获取后台数据
     getMenus() {

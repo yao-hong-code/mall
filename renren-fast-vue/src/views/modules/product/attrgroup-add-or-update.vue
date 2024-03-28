@@ -2,9 +2,16 @@
   <el-dialog
     :title="!dataForm.attrGroupId ? '新增' : '修改'"
     :close-on-click-modal="false"
-    :visible.sync="visible">
-    <el-form :model="dataForm" :rules="dataRule" ref="dataForm" @keyup.enter.native="dataFormSubmit()"
-             label-width="80px">
+    :visible.sync="visible"
+    @closed="dialogClose"
+  >
+    <el-form
+      :model="dataForm"
+      :rules="dataRule"
+      ref="dataForm"
+      @keyup.enter.native="dataFormSubmit()"
+      label-width="80pxs"
+    >
       <el-form-item label="属性组名" prop="attrGroupName">
         <el-input v-model="dataForm.attrGroupName" placeholder="属性组名"></el-input>
       </el-form-item>
@@ -17,8 +24,15 @@
       <el-form-item label="组图标" prop="icon">
         <el-input v-model="dataForm.icon" placeholder="组图标"></el-input>
       </el-form-item>
-      <el-form-item label="产品id" prop="catelogId">
-        <el-input v-model="dataForm.catelogId" placeholder="产品id"></el-input>
+      <el-form-item label="所属分类" prop="catelogPath">
+        <el-cascader
+          @change="showchange"
+          v-model="dataForm.catelogPath"
+          :options="categroys"
+          :props="props"
+          placeholder="试试搜索：手机"
+          filterable>
+        </el-cascader>
       </el-form-item>
     </el-form>
     <span slot="footer" class="dialog-footer">
@@ -32,15 +46,27 @@
 export default {
   data() {
     return {
+      //dialog 开关
       visible: false,
+      //表单数据
       dataForm: {
         attrGroupId: 0,
-        attrGroupName: '',
-        sort: '',
-        descript: '',
-        icon: '',
-        catelogId: ''
+        attrGroupName: "",
+        sort: "",
+        descript: "",
+        icon: "",
+        catelogId: 0, //保存要提交的子节点的id
+        //所属分类完整路径
+        catelogPath: [],
       },
+      props: {
+        value: "catId",
+        label: "name",
+        children: "children"
+      },
+      //子组件数据
+      categroys: [],
+      //校验规则
       dataRule: {
         attrGroupName: [
           {required: true, message: '属性组名不能为空', trigger: 'blur'}
@@ -54,13 +80,19 @@ export default {
         icon: [
           {required: true, message: '不能图标为空', trigger: 'blur'}
         ],
-        catelogId: [
-          {required: true, message: '产品id不能为空', trigger: 'blur'}
+        catelogPath: [
+          {required: true, message: '所属分类不能为空', trigger: 'blur'}
         ]
       }
     }
   },
+  created() {
+    this.getCategorys();
+  },
   methods: {
+    showchange(){
+      console.log(this.dataForm.catelogPath);
+    },
     init(id) {
       this.dataForm.attrGroupId = id || 0
       this.visible = true
@@ -78,10 +110,14 @@ export default {
               this.dataForm.descript = data.attrGroup.descript
               this.dataForm.icon = data.attrGroup.icon
               this.dataForm.catelogId = data.attrGroup.catelogId
+              this.dataForm.catelogPath = data.attrGroup.catelogPath;
             }
           })
         }
       })
+    },
+    dialogClose() {
+      this.catelogPath = [];
     },
     // 表单提交
     dataFormSubmit() {
@@ -96,7 +132,7 @@ export default {
               'sort': this.dataForm.sort,
               'descript': this.dataForm.descript,
               'icon': this.dataForm.icon,
-              'catelogId': this.dataForm.catelogId
+              'catelogId': this.dataForm.catelogPath[this.dataForm.catelogPath.length - 1],
             })
           }).then(({data}) => {
             if (data && data.code === 0) {
@@ -115,7 +151,15 @@ export default {
           })
         }
       })
-    }
+    },
+    getCategorys() {
+      this.$http({
+        url: this.$http.adornUrl("/product/category/list/tree"),
+        method: "get",
+      }).then(({data}) => {
+        this.categroys = data.data;
+      });
+    },
   }
 }
 </script>

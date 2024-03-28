@@ -4,9 +4,9 @@ import com.edu.common.utils.PageUtils;
 import com.edu.common.utils.R;
 import com.edu.mall.product.entity.AttrEntity;
 import com.edu.mall.product.service.AttrService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.Map;
 
@@ -19,19 +19,18 @@ import java.util.Map;
 @RestController
 @RequestMapping("product/attr")
 public class AttrController {
-    @Autowired
+    @Resource
     private AttrService attrService;
 
     /**
      * 列表
      */
-    @RequestMapping("/list")
-    public R list(@RequestParam Map<String, Object> params) {
-        PageUtils page = attrService.queryPage(params);
+    @RequestMapping("/base/list/{catelogId}")
+    public R list(@RequestParam Map<String, Object> params, @PathVariable Long catelogId) {
+        PageUtils page = attrService.queryPage(params, catelogId);
 
         return R.ok().put("page", page);
     }
-
 
     /**
      * 信息

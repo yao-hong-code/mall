@@ -2,10 +2,9 @@
 <template>
   <el-row :gutter="20">
     <el-col :span="6">
-      <category></category>
+      <category @tree-node-click="treeNodeClick"></category>
     </el-col>
-    <el-col :span="18"
-    >
+    <el-col :span="18">
       <div class="mod-config">
         <el-form
           :inline="true"
@@ -15,7 +14,7 @@
           <el-form-item>
             <el-input
               v-model="dataForm.key"
-              placeholder="参数名"
+              placeholder="属性名"
               clearable
             ></el-input>
           </el-form-item>
@@ -48,13 +47,6 @@
             header-align="center"
             align="center"
             width="50"
-          >
-          </el-table-column>
-          <el-table-column
-            prop="attrGroupId"
-            header-align="center"
-            align="center"
-            label="分组id"
           >
           </el-table-column>
           <el-table-column
@@ -105,15 +97,13 @@
                 size="small"
                 @click="addOrUpdateHandle(scope.row.attrGroupId)"
               >修改
-              </el-button
-              >
+              </el-button>
               <el-button
                 type="text"
                 size="small"
                 @click="deleteHandle(scope.row.attrGroupId)"
               >删除
-              </el-button
-              >
+              </el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -132,8 +122,7 @@
           ref="addOrUpdate"
           @refreshDataList="getDataList"
         ></add-or-update>
-      </div
-      >
+      </div>
     </el-col>
   </el-row>
 </template>
@@ -146,6 +135,7 @@ export default {
   components: {Category, AddOrUpdate},
   data() {
     return {
+      catId: 0,
       dataForm: {
         key: "",
       },
@@ -166,7 +156,7 @@ export default {
     getDataList() {
       this.dataListLoading = true;
       this.$http({
-        url: this.$http.adornUrl("/product/attrgroup/list"),
+        url: this.$http.adornUrl(`/product/attrgroup/list/${this.catId}`),
         method: "get",
         params: this.$http.adornParams({
           page: this.pageIndex,
@@ -241,6 +231,13 @@ export default {
           }
         });
       });
+    },
+    treeNodeClick(data, node, component) {
+      //必须是三级分类，才显示属性
+      if (data.catLevel == 3) {
+        this.catId = data.catId;
+        this.getDataList();
+      }
     },
   },
 };
