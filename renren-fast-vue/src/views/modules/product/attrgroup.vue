@@ -74,8 +74,10 @@
             prop="icon"
             header-align="center"
             align="center"
-            label="组图标"
-          >
+            label="icon">
+            <template slot-scope="scope">
+              <img :src="scope.row.icon" style="width: 100px; height: 80px">
+            </template>
           </el-table-column>
           <el-table-column
             prop="catelogId"

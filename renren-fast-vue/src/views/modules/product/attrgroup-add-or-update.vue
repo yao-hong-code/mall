@@ -22,7 +22,8 @@
         <el-input v-model="dataForm.descript" placeholder="描述"></el-input>
       </el-form-item>
       <el-form-item label="组图标" prop="icon">
-        <el-input v-model="dataForm.icon" placeholder="组图标"></el-input>
+        <single-upload v-model="dataForm.icon"></single-upload>
+        <!--        <el-input v-model="dataForm.icon" placeholder="组图标"></el-input>-->
       </el-form-item>
       <el-form-item label="所属分类" prop="catelogPath">
         <el-cascader
@@ -43,7 +44,12 @@
 </template>
 
 <script>
+import singleUpload from "../../../components/upload/singleUpload";
+
 export default {
+  components: {
+    singleUpload
+  },
   data() {
     return {
       //dialog 开关
@@ -90,7 +96,7 @@ export default {
     this.getCategorys();
   },
   methods: {
-    showchange(){
+    showchange() {
       console.log(this.dataForm.catelogPath);
     },
     init(id) {
