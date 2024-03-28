@@ -83,7 +83,7 @@
             prop="catelogId"
             header-align="center"
             align="center"
-            label="所属分类id"
+            label="所属分类"
           >
           </el-table-column>
           <el-table-column

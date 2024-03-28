@@ -33,7 +33,6 @@
           style="width: 100%;"
         >
           <el-table-column type="selection" header-align="center" align="center" width="50"></el-table-column>
-          <el-table-column prop="attrId" header-align="center" align="center" label="id"></el-table-column>
           <el-table-column prop="attrName" header-align="center" align="center" label="属性名"></el-table-column>
           <el-table-column
             v-if="attrtype == 1"
@@ -53,7 +52,16 @@
               <el-tag v-else>多选</el-tag>
             </template>
           </el-table-column>
-          <el-table-column prop="icon" header-align="center" align="center" label="图标"></el-table-column>
+<!--          <el-table-column prop="icon" header-align="center" align="center" label="图标"></el-table-column>-->
+          <el-table-column
+            prop="icon"
+            header-align="center"
+            align="center"
+            label="icon">
+            <template slot-scope="scope">
+              <img :src="scope.row.icon" style="width: 60px; height: 40px">
+            </template>
+          </el-table-column>
           <el-table-column prop="valueSelect" header-align="center" align="center" label="可选值">
             <template slot-scope="scope">
               <el-tooltip placement="top">

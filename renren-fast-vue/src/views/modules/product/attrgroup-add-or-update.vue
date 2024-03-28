@@ -23,11 +23,9 @@
       </el-form-item>
       <el-form-item label="组图标" prop="icon">
         <single-upload v-model="dataForm.icon"></single-upload>
-        <!--        <el-input v-model="dataForm.icon" placeholder="组图标"></el-input>-->
       </el-form-item>
       <el-form-item label="所属分类" prop="catelogPath">
         <el-cascader
-          @change="showchange"
           v-model="dataForm.catelogPath"
           :options="categroys"
           :props="props"
@@ -93,12 +91,9 @@ export default {
     }
   },
   created() {
-    this.getCategorys();
+    this.getCategories();
   },
   methods: {
-    showchange() {
-      console.log(this.dataForm.catelogPath);
-    },
     init(id) {
       this.dataForm.attrGroupId = id || 0
       this.visible = true
@@ -158,7 +153,7 @@ export default {
         }
       })
     },
-    getCategorys() {
+    getCategories() {
       this.$http({
         url: this.$http.adornUrl("/product/category/list/tree"),
         method: "get",

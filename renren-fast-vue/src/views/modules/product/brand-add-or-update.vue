@@ -15,13 +15,20 @@
         <el-input v-model="dataForm.descript" placeholder="介绍"></el-input>
       </el-form-item>
       <el-form-item label="是否展示" prop="showStatus">
-        <el-input v-model="dataForm.showStatus" placeholder="0 / 1"></el-input>
+        <el-switch
+          v-model="dataForm.showStatus"
+          active-color="#13ce66"
+          inactive-color="#ff4949"
+          :active-value="1"
+          :inactive-value="0"
+        >
+        </el-switch>
       </el-form-item>
       <el-form-item label="首字母" prop="firstLetter">
         <el-input v-model="dataForm.firstLetter" placeholder="检索首字母"></el-input>
       </el-form-item>
       <el-form-item label="排序" prop="sort">
-        <el-input v-model.number="dataForm.sort" placeholder="整型数字"></el-input>
+        <el-input-number v-model="dataForm.sort"  :min="0" label="排序"></el-input-number>
       </el-form-item>
     </el-form>
     <span slot="footer" class="dialog-footer">

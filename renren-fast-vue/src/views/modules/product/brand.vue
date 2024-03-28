@@ -31,7 +31,7 @@
         label="品牌名">
       </el-table-column>
       <el-table-column
-        prop="logo" s
+        prop="logo"
         header-align="center"
         align="center"
         label="logoַ">
